@@ -34,6 +34,6 @@ public abstract class Creature {
 		return roll;
 	}
 	
-	public abstract save()
+	public abstract int save(int stat);
 
 }
