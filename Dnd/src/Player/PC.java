@@ -8,7 +8,6 @@ public class PC extends Creature {
 	protected int hp;
 	
 	protected int ac;
-	protected int proficiency;
 	
 	public PC(String name) {
 		this(name,10,10,10,10,10,10);
@@ -38,7 +37,9 @@ public class PC extends Creature {
 		return stats;
 	}
 	
-	
+	private int proficiency() {
+		return pcClass.getProf();
+	}
 	
 	@Override
 	public String toString() {
@@ -54,6 +55,13 @@ public class PC extends Creature {
 		System.out.println(player);
 	}
 
-	
+	public int save(int stat) {
+		int result = rollD(20);
+		result += this.getMod(stat);
+		if (pcClass.saveProf[stat]) {
+			result += this.proficiency();
+		}
+		return result;
+	}
 
 }

@@ -2,6 +2,7 @@ package Player;
 
 public abstract class PlayerClass {
 	protected int level;
+	protected boolean[] saveProf= {false, false, false, false, false, false};
 	
 	public PlayerClass() {
 		this(1);
