@@ -37,10 +37,6 @@ public class PC extends Creature {
 		return stats;
 	}
 	
-	private int proficiency() {
-		return pcClass.getProf();
-	}
-	
 	@Override
 	public String toString() {
 		String s = String.format("Name: %s\n", name);
@@ -49,19 +45,21 @@ public class PC extends Creature {
 		return s;
 	}
 	
+	public int save(int stat) {
+		int result = rollD(20);
+		result += this.getMod(stat);
+		if (pcClass.saveProf[stat]) {
+			result += pcClass.getProf();
+		}
+		return result;
+	}
+	
 	public static void main(String[] args) {
 		PC player = new PC("John");
 		player.rollStats();
 		System.out.println(player);
 	}
 
-	public int save(int stat) {
-		int result = rollD(20);
-		result += this.getMod(stat);
-		if (pcClass.saveProf[stat]) {
-			result += this.proficiency();
-		}
-		return result;
-	}
+	
 
 }
