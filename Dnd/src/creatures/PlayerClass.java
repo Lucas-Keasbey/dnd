@@ -1,4 +1,4 @@
-package Player;
+package creatures;
 
 public abstract class PlayerClass {
 	protected int level;

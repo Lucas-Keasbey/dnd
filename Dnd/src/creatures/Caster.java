@@ -1,4 +1,4 @@
-package Player;
+package creatures;
 
 public abstract class Caster extends PlayerClass {
 	int[][] maxSlots = {

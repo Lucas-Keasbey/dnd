@@ -1,4 +1,4 @@
-package Player;
+package creatures;
 
 public abstract class Creature {
 	protected int[] stats = new int[6];

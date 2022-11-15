@@ -1,4 +1,4 @@
-package Player;
+package creatures;
 import java.util.*;
 
 public class PC extends Creature {
