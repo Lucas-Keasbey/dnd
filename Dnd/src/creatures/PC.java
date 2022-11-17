@@ -9,13 +9,14 @@ public class PC extends Creature {
 	
 	protected int ac;
 	
-	public PC(String name) {
-		this(name,10,10,10,10,10,10);
+	public PC(String name, PlayerClass pcClass) {
+		this(name,pcClass,10,10,10,10,10,10);
 	}
 	
-	public PC(String name, int str, int dex, int con, int inte, int wis, int cha) {
+	public PC(String name, PlayerClass pcClass, int str, int dex, int con, int inte, int wis, int cha) {
 		super(str, dex, con, inte, wis, cha);
 		this.name = name;
+		this.pcClass = pcClass;
 	}
 	
 	public int[] rollStats() {
@@ -39,7 +40,7 @@ public class PC extends Creature {
 	
 	@Override
 	public String toString() {
-		String s = String.format("Name: %s\n", name);
+		String s = String.format("Name: %s\tClass: %s\n", name, pcClass.toString());
 		s += String.format("Str: %d\tDex: %d\tCon: %d\n", stats[0], stats[1], stats[2]);
 		s += String.format("Int: %d\tWis: %d\tCha: %d\n", stats[3], stats[4], stats[5]);
 		return s;
@@ -55,7 +56,7 @@ public class PC extends Creature {
 	}
 	
 	public static void main(String[] args) {
-		PC player = new PC("John");
+		PC player = new PC("John", new Fighter());
 		player.rollStats();
 		System.out.println(player);
 	}

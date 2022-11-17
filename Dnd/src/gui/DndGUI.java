@@ -13,18 +13,13 @@ public class DndGUI extends Application{
 	protected int[] stats;
 	protected PC player;
 	protected TextArea playerPrint;
-	protected TextField txtStr;
-	protected TextField txtDex;
-	protected TextField txtCon;
-	protected TextField txtInt;
-	protected TextField txtWis;
-	protected TextField txtCha;
+	protected TextField txtStr, txtDex, txtCon, txtInt, txtWis, txtCha;
 	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
 			BorderPane root = new BorderPane();
-			player = new PC("Bob");
+			player = new PC("Bob", new Fighter());
 			stats = player.getStats();
 			root.setLeft(statsBuilder());
 			playerPrint = new TextArea(player.toString());
