@@ -25,6 +25,7 @@ public class DndGUI extends Application{
 		try {
 			BorderPane root = new BorderPane();
 			player = new PC("Bob");
+			stats = player.getStats();
 			root.setLeft(statsBuilder());
 			playerPrint = new TextArea(player.toString());
 			playerPrint.setEditable(false);
@@ -35,6 +36,7 @@ public class DndGUI extends Application{
 			Scene scene = new Scene(root,400,400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
+			primaryStage.setTitle("Dnd Player Character");
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -42,7 +44,6 @@ public class DndGUI extends Application{
 	}
 	
 	public GridPane statsBuilder() {
-		stats = player.getStats();
 		GridPane gp = new GridPane();
 		Label lbStr = new Label("Str");
 		txtStr = new TextField(String.valueOf(stats[0]));
