@@ -1,0 +1,14 @@
+.root {
+	-fx-padding: 10px;
+}
+
+GridPane {
+	-fx-padding: 10px;
+	-fx-hgap:10px;
+	-fx-vgap:10px;
+	-fx-alignment: top-center;
+}
+
+Label{
+	-fx-min-width: 30px;
+}
